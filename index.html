@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>For Rent Faturas 2019</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">For Rent - Faturas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <h1 class="my-4 text-center text-lg-left">Digite as informações da sua empresa</h1>
+      
+      <hr>
+      <!-- Form minha empresa -->
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nomeEmpresa">Nome da empresa</label>
+            <input type="text" class="form-control" id="nomeEmpresa" placeholder="Digite o nome da empresa">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="Digite o E-mail">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="endereco">Endereço</label>
+          <input type="text" class="form-control" id="endereco" placeholder="Digite o endereço completo">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="cidade">Cidade</label>
+            <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade" value="Curitiba"> 
+          </div>
+          <div class="form-group col-md-4">
+            <label for="estado">Estado</label>
+            <select id="estado" class="form-control">
+              <option>Escolher...</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR" selected>Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="cep">CEP</label>
+            <input type="number" class="form-control" id="cep" placeholder="00000-000" maxlength="9">
+          </div>
+        </div>
+      </form>
+
+
+      <h1 class="my-4 text-center text-lg-left">Digite as informações do cliente e da fatura</h1>
+      
+      <hr>
+
+      <!-- Form do Cliente -->
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="nomeCliente">Nome do seu cliente</label>
+            <input type="text" class="form-control" id="nomeCliente" placeholder="Digite o nome do seu cliente">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="emailCliente">E-mail</label>
+            <input type="email" class="form-control" id="emailCliente" placeholder="Digite o e-mail do cliente">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="numeroFatura">Número da Fatura</label>
+            <input type="number" class="form-control" id="numeroFatura" placeholder="Digite o número da fatura">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label for="enderecoCliente">Endereço</label>
+            <input type="text" class="form-control" id="enderecoCliente" placeholder="Digite o endereço do cliente">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="dataFatura">Data da fatura</label>
+            <input type="date" class="form-control" id="dataFatura" placeholder="Digite a data da fatura">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="cidadeCliente">Cidade</label>
+            <input type="text" class="form-control" id="cidadeCliente" placeholder="Digite a cidade do cliente"> 
+          </div>
+          <div class="form-group col-md-4">
+            <label for="estadoCliente">Estado</label>
+            <select id="estadoCliente" class="form-control">
+              <option selected>Escolher...</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="cepCliente">CEP</label>
+            <input type="number" class="form-control" id="cepCliente" placeholder="00000-000" maxlength="9">
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; forrentveiculos.com.br 2019</p>
+      </div>      
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
