@@ -21,7 +21,7 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">For Rent - Faturas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -191,14 +191,71 @@
         </div>
       </form>
 
+      <h1 class="my-4 text-center text-lg-left">Digite os itens que deseja cobrar</h1>
+      
+      <hr>
+
+      <!-- Form items a cobrar -->
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="item" placeholder="Digite o nome do item">
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="descricaoItem" placeholder="Digite a descrição do item">
+          </div>
+          <div class="form-group col-md-2">
+            <input type="number" class="form-control" id="quantidadeItem" placeholder="Quantidade">
+          </div>
+          <div class="form-group col-md-2">
+            <input type="number" class="form-control" id="precoItem" placeholder="Preço">
+          </div>
+          <div class="form-group col-md-2">
+            <input type="number" class="form-control" id="valorItem" placeholder="R$0,00" readonly>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm">Adicionar um item</button>
+        </div>
+        </form>
+
+        <hr>
+        
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="observacoes">Observações</label>
+            <textarea class="form-control" id="observacoes" rows="6"></textarea>
+          </div>
+          <div class="form-group col-md-6">
+            <h3>Total</h3>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                SUBTOTAL
+                <span class="badge badge-primary badge-pill">R$0,00</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                TOTAL
+                <span class="badge badge-primary badge-pill">R$0,00</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="form-row">
+          <div class="col-md-12 text-right">
+            <button type="button" class="btn btn-primary btn-lg">Enviar</button>
+          </div>
+        </div>
+        
+
+        <br>
+
     </div>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <!-- <footer class="py-5 bg-primary">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; forrentveiculos.com.br 2019</p>
       </div>      
-    </footer>
+    </footer> -->
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
