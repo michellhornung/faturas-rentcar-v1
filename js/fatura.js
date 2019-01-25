@@ -10,6 +10,8 @@ $( document ).ready(function() {
         inputValue = '';
       });
 
+    //Load with today date  
+    document.querySelector("#dataFatura").valueAsDate = new Date();
 
 });
 
