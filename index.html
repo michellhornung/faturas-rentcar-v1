@@ -17,6 +17,12 @@
   <!-- Custom styles for this template -->
   <link href="css/thumbnail-gallery.css" rel="stylesheet">
 
+  <!-- jQuery JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="js/fatura.js"></script>
+
 </head>
 
 <body>
@@ -59,13 +65,19 @@
     <!-- Form minha empresa -->
     <form>
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-5">
           <label for="nomeEmpresa">Nome da empresa</label>
           <input type="text" class="form-control cleanInputValue" id="nomeEmpresa" 
           placeholder="Digite o nome da empresa"
           value="FOR RENT LOCAÇÃO DE VEÍCULOS">
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-3">
+            <label for="cnpjEmpresa">CNPJ</label>
+            <input type="text" class="form-control cleanInputValue" id="cnpjEmpresa" 
+            placeholder="Digite o nome da empresa"
+            value="31.732.641/0001-64">
+        </div>
+        <div class="form-group col-md-4">
           <label for="email">E-mail</label>
           <input type="email" class="form-control cleanInputValue" id="email" 
           placeholder="Digite o E-mail"
@@ -131,27 +143,33 @@
     <!-- Form do Cliente -->
     <form>
       <div class="form-row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-5">
           <label for="nomeCliente">Nome do seu cliente</label>
           <input type="text" class="form-control" id="nomeCliente" placeholder="Digite o nome do seu cliente">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="cnpjCliente">CNPJ</label>
+            <input type="text" class="form-control" id="cnpjCliente" placeholder="Digite o nome da empresa">
         </div>
         <div class="form-group col-md-4">
           <label for="emailCliente">E-mail</label>
           <input type="email" class="form-control" id="emailCliente" placeholder="Digite o e-mail do cliente">
         </div>
-        <div class="form-group col-md-4">
-          <label for="numeroFatura">Número da Fatura</label>
-          <input type="number" class="form-control" id="numeroFatura" placeholder="Digite o número da fatura">
-        </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-12">
           <label for="enderecoCliente">Endereço</label>
           <input type="text" class="form-control" id="enderecoCliente" placeholder="Digite o endereço do cliente">
         </div>
-        <div class="form-group col-md-4">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
           <label for="dataFatura">Data da fatura</label>
-          <input type="date" class="form-control" id="dataFatura" placeholder="Digite a data da fatura">
+          <input type="text" class="form-control" id="dataFatura" placeholder="Escolha a data da fatura">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="numeroFatura">Número da fatura</label>
+            <input type="text" class="form-control" id="numeroFatura" placeholder="Digite o número da fatura">
         </div>
       </div>
       <div class="form-row">
@@ -265,10 +283,7 @@
       </div>      
     </footer> -->
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/fatura.js"></script>
+
 
 </body>
 
