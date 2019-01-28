@@ -14,7 +14,7 @@ $(document).ready(function () {
     document.querySelector("#dataFatura").valueAsDate = new Date();
 
     /** Dynamically add inputs */
-    
+
     //define template
     var template = $('#sections .section:first').clone();
 
@@ -51,7 +51,7 @@ $(document).ready(function () {
         //fade out section
         $(this).parent().fadeOut(300, function () {
             //remove parent element (main section)
-            $(this).parent().parent().empty();
+            $(this).parent().parent().remove();
             return false;
         });
         return false;
