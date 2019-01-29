@@ -10,7 +10,7 @@
 
   <title>For Rent Faturas 2019</title>
 
-  <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -30,7 +30,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">For Rent - Faturas</a>
+      <a class="navbar-brand" href="index.html">For Rent - Faturas</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -162,7 +162,49 @@
           <input type="text" class="form-control" id="enderecoCliente" placeholder="Digite o endereço do cliente">
         </div>
       </div>
-
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="cidadeCliente">Cidade</label>
+            <input type="text" class="form-control" id="cidadeCliente" placeholder="Digite a cidade do cliente">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="estadoCliente">Estado</label>
+            <select id="estadoCliente" class="form-control">
+              <option selected>Escolher...</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="cepCliente">CEP</label>
+            <input type="number" class="form-control" id="cepCliente" placeholder="00000-000" maxlength="9">
+          </div>
+        </div>
       <h1 class="my-4 text-center text-lg-left">Dados da fatura</h1>
 
       <hr>
@@ -177,49 +219,7 @@
             <input type="text" class="form-control" id="numeroFatura" placeholder="Digite o número da fatura">
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="cidadeCliente">Cidade</label>
-          <input type="text" class="form-control" id="cidadeCliente" placeholder="Digite a cidade do cliente">
-        </div>
-        <div class="form-group col-md-4">
-          <label for="estadoCliente">Estado</label>
-          <select id="estadoCliente" class="form-control">
-            <option selected>Escolher...</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-            <option value="SE">Sergipe</option>
-            <option value="TO">Tocantins</option>
-          </select>
-        </div>
-        <div class="form-group col-md-2">
-          <label for="cepCliente">CEP</label>
-          <input type="number" class="form-control" id="cepCliente" placeholder="00000-000" maxlength="9">
-        </div>
-      </div>
+      
     </form>
 
     <h1 class="my-4 text-center text-lg-left">Digite os itens que deseja cobrar</h1>
@@ -230,11 +230,14 @@
       <div id="sections">
         <div class="section">
           <div class="form-row">
-            <div class="form-group col-md-7">
+            <div class="form-group col-md-6">
               <input type="text" class="form-control" id="descricaoServico" placeholder="Digite a descrição do serviço">
             </div>
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control" id="valorItem" placeholder="Valor unitário">
+            <div class="form-group col-md-2">
+              <input type="text" class="form-control" id="valorUnitarioItem" placeholder="Valor unitário">
+            </div>
+            <div class="form-group col-md-2">
+                <input type="text" class="form-control" id="valorTotalItem" placeholder="Valor total">
             </div>
             <div class="form-group col-md-2">
                 <button type="button" class="btn btn-outline-danger remove">Remover item</button>
@@ -242,10 +245,9 @@
           </div>
         </div>
       </div>
-      <div class="form-group col-md-6">
-        <button type="button" class="btn btn-primary addsection">Adicionar um item</button>
-      </div>
-
+      
+      <button type="button" class="btn btn-primary addsection">Adicionar um item</button>
+      
     <hr>
 
     <div class="form-row">
@@ -256,10 +258,10 @@
       <div class="form-group col-md-6">
         <h3>Total</h3>
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
             SUBTOTAL
             <span class="badge badge-primary badge-pill">R$0,00</span>
-          </li>
+          </li> -->
           <li class="list-group-item d-flex justify-content-between align-items-center">
             TOTAL
             <span class="badge badge-primary badge-pill">R$0,00</span>
@@ -270,7 +272,7 @@
     <hr>
     <div class="form-row">
       <div class="col-md-12 text-right">
-        <button type="button" class="btn btn-primary btn-lg">Gerar fatura!</button>
+        <a href="fatura.html" target="_blank" role="button" class="btn btn-primary btn-lg">Gerar fatura!</a>
       </div>
     </div>
 
