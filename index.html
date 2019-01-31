@@ -236,13 +236,52 @@
               <input type="text" class="form-control" id="descricaoServico" placeholder="Digite a descrição do serviço">
             </div>
             <div class="form-group col-md-3">
-                <input type="text" class="form-control money2 cost" id="valorTotalItem" placeholder="Valor total">
+                <input type="text" class="form-control cost" id="valorTotalItem" placeholder="Valor total">
             </div>
             <div class="form-group col-md-2">
                 <button type="button" class="btn btn-outline-danger remove">Remover item</button>
               </div>
           </div>
         </div>
+        <div class="section">
+            <div class="form-row">
+              <div class="form-group col-md-7">
+                <input type="text" class="form-control" id="descricaoServico" placeholder="Digite a descrição do serviço">
+              </div>
+              <div class="form-group col-md-3">
+                  <input type="text" class="form-control cost" id="valorTotalItem" placeholder="Valor total">
+              </div>
+              <div class="form-group col-md-2">
+                  <button type="button" class="btn btn-outline-danger remove">Remover item</button>
+                </div>
+            </div>
+          </div>
+          <div class="section">
+              <div class="form-row">
+                <div class="form-group col-md-7">
+                  <input type="text" class="form-control" id="descricaoServico" placeholder="Digite a descrição do serviço">
+                </div>
+                <div class="form-group col-md-3">
+                    <input type="text" class="form-control cost" id="valorTotalItem" placeholder="Valor total">
+                </div>
+                <div class="form-group col-md-2">
+                    <button type="button" class="btn btn-outline-danger remove">Remover item</button>
+                  </div>
+              </div>
+            </div>
+            <div class="section">
+                <div class="form-row">
+                  <div class="form-group col-md-7">
+                    <input type="text" class="form-control" id="descricaoServico" placeholder="Digite a descrição do serviço">
+                  </div>
+                  <div class="form-group col-md-3">
+                      <input type="text" class="form-control cost" id="valorTotalItem" placeholder="Valor total">
+                  </div>
+                  <div class="form-group col-md-2">
+                      <button type="button" class="btn btn-outline-danger remove">Remover item</button>
+                    </div>
+                </div>
+              </div>
       </div>
       
       <button type="button" class="btn btn-primary addsection">Adicionar um item</button>
@@ -259,13 +298,21 @@
       <div class="form-group col-md-6">
         <h3>Total</h3>
         <ul class="list-group">
-
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span class="badge badge-primary badge-pill money2" id="sum"></span>
-              <input type="text" class="form-control " id="sum" readonly placeholder="R$0,00"/>
+              <div class="input-group mb-6 input-group-lg">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">R$</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="0" id="sum">
+                  <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
           </li>
         </ul>
       </div>
+
+      
 
     </div>
     <hr>
