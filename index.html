@@ -23,6 +23,8 @@
   
   <script src="js/fatura.js"></script>
 
+  <script src="vendor/jmask/jquery.mask.js"></script>
+
 </head>
 
 <body>
@@ -73,7 +75,7 @@
         </div>
         <div class="form-group col-md-3">
             <label for="cnpjEmpresa">CNPJ</label>
-            <input type="text" class="form-control cleanInputValue" id="cnpjEmpresa" 
+            <input type="text" class="form-control cleanInputValue cnpj" id="cnpjEmpresa" 
             placeholder="Digite o nome da empresa"
             value="31.732.641/0001-64">
         </div>
@@ -130,7 +132,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="cep">CEP</label>
-          <input type="text" class="form-control cleanInputValue" id="cep" placeholder="00000-000" maxlength="9" value="80320-160">
+          <input type="text" class="form-control cleanInputValue cep" id="cep" placeholder="00000-000" maxlength="9" value="80320-160">
         </div>
       </div>
     </form>
@@ -149,7 +151,7 @@
         </div>
         <div class="form-group col-md-3">
             <label for="cnpjCliente">CNPJ</label>
-            <input type="text" class="form-control" id="cnpjCliente" placeholder="Digite o nome da empresa">
+            <input type="text" class="form-control cnpj" id="cnpjCliente" placeholder="Digite o nome da empresa">
         </div>
         <div class="form-group col-md-4">
           <label for="emailCliente">E-mail</label>
@@ -202,7 +204,7 @@
           </div>
           <div class="form-group col-md-2">
             <label for="cepCliente">CEP</label>
-            <input type="number" class="form-control" id="cepCliente" placeholder="00000-000" maxlength="9">
+            <input type="text" class="form-control cep" id="cepCliente" placeholder="00000-000" maxlength="9">
           </div>
         </div>
       <h1 class="my-4 text-center text-lg-left">Dados da fatura</h1>
@@ -230,14 +232,11 @@
       <div id="sections">
         <div class="section">
           <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-7">
               <input type="text" class="form-control" id="descricaoServico" placeholder="Digite a descrição do serviço">
             </div>
-            <div class="form-group col-md-2">
-              <input type="text" class="form-control" id="valorUnitarioItem" placeholder="Valor unitário">
-            </div>
-            <div class="form-group col-md-2">
-                <input type="text" class="form-control" id="valorTotalItem" placeholder="Valor total">
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control money2 cost" id="valorTotalItem" placeholder="Valor total">
             </div>
             <div class="form-group col-md-2">
                 <button type="button" class="btn btn-outline-danger remove">Remover item</button>
@@ -255,19 +254,19 @@
         <label for="observacoes">Observações</label>
         <textarea class="form-control" id="observacoes" rows="6"></textarea>
       </div>
+
+      
       <div class="form-group col-md-6">
         <h3>Total</h3>
         <ul class="list-group">
-          <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-            SUBTOTAL
-            <span class="badge badge-primary badge-pill">R$0,00</span>
-          </li> -->
+
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            TOTAL
-            <span class="badge badge-primary badge-pill">R$0,00</span>
+            <span class="badge badge-primary badge-pill money2" id="sum"></span>
+              <input type="text" class="form-control " id="sum" readonly placeholder="R$0,00"/>
           </li>
         </ul>
       </div>
+
     </div>
     <hr>
     <div class="form-row">

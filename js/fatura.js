@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     //Load with today date  
     document.querySelector("#dataFatura").valueAsDate = new Date();
+    
 
     /** Dynamically add inputs */
 
@@ -57,6 +58,59 @@ $(document).ready(function () {
         return false;
     });
 
+
+    /** Masks for fields */
+    $('.money2').mask("#.##0,00", {reverse: true});
+    $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+    $('.cep').mask('00000-000');
+    $('#sum').mask("#.##0,00", {reverse: true});
+
+    /** Calculate SUM currency fields */
+    // $(".cost").each(
+    //     function () {
+    //         $(this).keyup(
+    //             function () {
+    //                 calculateSum()
+    //             });
+    //     });
+
+
+    // function calculateSum() {
+    //     var sum = 0;
+    //     $(".cost").each(
+    //         function () {
+    //             var vl = this.value.replace(',', '');
+    //             if (!isNaN(vl) && vl.length != 0) {
+    //                 sum += parseFloat(vl);
+    //             }
+    //         });
+
+    //     $("#sum").val(sum.toFixed(2));
+    // }
+
+    // $('input.cost').keyup(function (event) {
+    //     // skip for arrow keys
+    //     if (event.which >= 37 && event.which <= 40) {
+    //         event.preventDefault();
+    //     }
+    //     var $this = $(this);
+    //     var num = $this.val().replace(/,/gi, "").split("").reverse().join("");
+
+    //     var num2 = RemoveRougeChar(num.replace(/(.{3})/g, "$1,").split("").reverse().join(""));
+
+    //     console.log(num2);
+
+    //     // the following line has been simplified. Revision history contains original.
+    //     $this.val(num2);
+    // });
+
+    // function RemoveRougeChar(convertString) {
+    //     if (convertString.substring(0, 1) == ",") {
+    //         return convertString.substring(1, convertString.length)
+    //     }
+    //     return convertString;
+
+    // }
 
 });
 
