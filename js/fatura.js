@@ -90,8 +90,8 @@ $(document).ready(function () {
                  }
              });
 
-        //$("#sum").val(sum.toFixed(2));
-        $("#sum").val(sum);
+        $("#sum").val(sum.toFixed(2));
+        //$("#sum").val(sum);
      }
 
 
@@ -119,10 +119,35 @@ $(document).ready(function () {
 
      }
 
+     $('#limparFatura').on('click', function () {
+        clearForm();
+    });
+
      $('#gerarFatura').on('click', function () {
 
             //GET all values from inputs of form and add into fatura
+            
+            //My company 
             var numeroFatura = $('#numeroFatura').val();
+            var nomeEmpresa = $('#nomeEmpresa').val();
+            var enderecoEmpresa = $('#endereco').val();
+            var cnpjEmpresa = $('#cnpjEmpresa').val();
+            var emailEmpresa = $('#email').val();
+            var cidadeEmpresa = $('#cidade').val();
+            var estadoEmpresa = $('#estado').val();
+            var cepEmpresa  = $('#cep').val();
+
+            //Customer
+            var nomeCliente  = $('#nomeCliente').val();
+            var cnpjCliente  = $('#cnpjCliente').val();
+            var emailCliente  = $('#emailCliente').val();
+            var enderecoCliente  = $('#enderecoCliente').val();
+            var cidadeCliente  = $('#cidadeCliente').val();
+            var estadoCliente  = $('#estadoCliente').val();
+            var cepCliente  = $('#cepCliente').val();
+            var totalFatura  = $('#sum').val();
+            var dataFatura  = $('#dataFatura').val();
+            var observacoes = $('#observacoes').val();
 
              var faturaContent = ' <div class="container" id="containerFatura" style="border: 1px solid #ccc"> ' +
              '<h1 class="my-4 text-center">Fatura #' + numeroFatura + '</h1> ' +
@@ -131,26 +156,26 @@ $(document).ready(function () {
                '<img src="img/logo.jpg" /> ' +
                  '</div> ' +
                '<div class="col-lg-6 col-md-6 col-sm-6" style="padding-top: 20px"> ' +
-               '<strong>FOR RENT LOCAÇÃO DE VEÍCULOS.</strong> ' +
+               '<strong>'+ nomeEmpresa +'</strong> ' +
                  '<br /> ' +
-                 '<i>Endereço : Rua Cecilio Toniolo, 50 ' +
+                 '<i>Endereço : '+ enderecoEmpresa +' ' +
                  '<br /> ' +
-                   'CEP: 80320-160 ' +
+                   'CEP: '+ cepEmpresa +' ' +
                    '<br /> ' +
-                   'Curitiba - PR - Brasil. </i> ' +
+                   ''+ cidadeEmpresa + ' - ' + estadoEmpresa + ' - Brasil. </i> ' +
                    '</div> ' +
                '</div> ' +
              '<div class="row text-center contact-info"> ' +
                '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
                '<hr /> ' +
                  '<span> ' +
-                 '<strong>E-mail : </strong> contato@forrentlocacaodeveiculos.com.br ' +
+                 '<strong>E-mail : </strong> ' + emailEmpresa + ' ' +
                    '</span> ' +
                  '<span> ' +
-                 '<strong>CNPJ : </strong> 31.732.641/0001-64 ' +
+                 '<strong>CNPJ : </strong> '+ cnpjEmpresa +' ' +
                    '</span> ' +
                  '<span> ' +
-                 '<strong>Fatura número: </strong> #333777 ' +
+                 '<strong>Fatura número: </strong> #'+ numeroFatura +' ' +
                    '</span> ' +
                  '<hr /> ' +
                  '</div> ' +
@@ -158,23 +183,23 @@ $(document).ready(function () {
              '<div class="row pad-top-botm client-info"> ' +
                '<div class="col-lg-6 col-md-6 col-sm-6"> ' +
                '<h4> <strong>Informações do cliente</strong></h4> ' +
-                 '<strong> John Rambo</strong> ' +
+                 '<strong> '+ nomeCliente +'</strong> ' +
                  '<br /> ' +
-                 '<b>Endereço :</b> Avenida Brasilia, 4606. ' +
-                 'Curitiba - PR - Brasil. ' +
+                 '<b>Endereço :</b> '+ enderecoCliente +' ' +
+                 ' '+ cidadeCliente +' - '+ estadoCliente + ' - Brasil. ' +
                  '<br /> ' +
-                 '<b>CEP: </b> 80320-160 ' +
+                 '<b>CEP: </b> '+ cepCliente +' ' +
                  '<br /> ' +
-                 '<b>CNPJ :</b> 31.732.641/0001-64 ' +
+                 '<b>CNPJ :</b> '+ cnpjCliente +' ' +
                  '<br /> ' +
-                 '<b>E-mail :</b> rambo@rambo.com ' +
+                 '<b>E-mail :</b> '+ emailCliente +' ' +
                  '</div> ' +
                '<div class="col-lg-6 col-md-6 col-sm-6"> ' +
          
                '<h4> <strong>Detalhes do pagamento </strong></h4> ' +
-                 '<b>Total : R$4.600,00 </b> ' +
+                 '<b>Total : R$'+ totalFatura +' </b> ' +
                  '<br /> ' +
-                 'Data : 29/01/2019 ' +
+                 'Data : '+ dataFatura +' ' +
                  '<br /> ' +
                  '<b>Status pagamento : PAGO </b> ' +
                  '</div> ' +
@@ -208,7 +233,7 @@ $(document).ready(function () {
                    '  </div> ' +
                  '  <hr /> ' +
                  '  <div class="ttl-amts"> ' +
-                 '<h4> <strong>Total: R$4.600,00</strong> </h4> ' +
+                 '<h4> <strong>Total: R$'+totalFatura+'</strong> </h4> ' +
                    '  </div> ' +
                  ' </div> ' +
                ' </div> ' +
@@ -216,15 +241,9 @@ $(document).ready(function () {
                '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
                '<strong> Observações: </strong> ' +
                  '<ol> ' +
-                 '<li> ' +
-                   'Aqui é o espaço para observações. ' +
-         
-                     '</li> ' +
-                   '<li> ' +
-                   'Nam tristique et ex ut sollicitudin. ' +
-                     'Nunc blandit vel libero id faucibus. Donec posuere justo ornare, malesuada enim eget, auctor lectus. ' +
-         
-                     '</li> ' +
+                    
+                        observacoes    
+                    
                    '</ol> ' +
                  '</div> ' +
                '</div> ' +
@@ -241,7 +260,18 @@ $(document).ready(function () {
 
     });
 
+  function clearForm() {
 
+    var numeroFatura = $('#numeroFatura').val('');
+    var nomeEmpresa = $('#nomeEmpresa').val('');
+    var enderecoEmpresa = $('#endereco').val('');
+    var cnpjEmpresa = $('#cnpjEmpresa').val('');
+    var emailEmpresa = $('#email').val('');
+    var cidadeEmpresa = $('#cidade').val('');
+    var estadoEmpresa = $('#estado').val('');
+    var cepEmpresa = $('#cep').val('');
+
+  }
 
 });
 
