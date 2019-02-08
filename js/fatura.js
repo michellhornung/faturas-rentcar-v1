@@ -157,18 +157,60 @@ $(document).ready(function () {
     var dataFatura = $('#dataFatura').val();
     var observacoes = $('#observacoes').val();
 
-    //DATA FROM INPUTTED ITEMS
-    var myArrayDescricao = [];
-    $('.descricaoServico').each(function () {
-      myArrayDescricao.push($(this).val());
-    });
-    alert(myArrayDescricao);
 
-    var myArrayValor = [];
-    $('.valorTotalItem').each(function () {
-      myArrayValor.push($(this).val());
+
+    ///////////////////////////
+    //DATA FROM INPUTTED ITEMS
+    //////////////////////////
+
+    var myArrayTableData = [];
+    var arrayLenght = myArrayTableData.length;
+    $('.descricaoServico').each(function () {
+      myArrayTableData.push($(this).val());
     });
-    alert(myArrayValor);
+    $('.valorTotalItem').each(function () {
+      myArrayTableData.push($(this).val());
+    });
+
+
+    //
+    // IMPLEMENTING *************
+    //
+
+    // var map = {};
+    // $(".descricaoServico").each(function() {
+    //     map[$(this).attr("name")] = $(this).val();
+    //       $(".valorTotalItem").each(function() {
+    //           map[$(this).attr("name")] = $(this).val();
+    //       });
+    //   });
+    // alert(map.descricaoServico); 
+    // alert(map.valorTotalItem);
+
+    var item = {}; // my object
+    var items = []; // my array
+    $('.descricaoServico').each(function (index, value) {
+      desc = map[$(this).attr("name")] = $(this).val();
+        $(".valorTotalItem").each(function () {
+          valor = map[$(this).attr("name")] = $(this).val();
+        });
+      item = {
+        descricao: desc,
+        valor: valor 
+      }
+      items.push(item);
+    });
+
+    //
+    // IMPLEMENTING *************
+    //
+
+
+
+
+    
+
+  
 
     faturaContent = ' <div class="container" id="containerFatura" style="border: 1px solid #ccc"> ' +
       '<h1 class="my-4 text-center">Fatura #' + numeroFatura + '</h1> ' +
@@ -228,30 +270,16 @@ $(document).ready(function () {
       '<div class="row"> ' +
       '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
       '<div class="table-responsive"> ' +
-      '<table class="table table-striped table-bordered table-hover"> ' +
-      '<thead> ' +
-      '<tr> ' +
-      '<th>Descrição do serviço</th> ' +
-      '<th>Total</th> ' +
-      '</tr> ' +
-      '</thead> ' +
-      '<tbody> ' +
-      '<tr> ' +
-      '<td>Pneu pirelli</td> ' +
-      '<td>400,00</td> ' +
-      '</tr> ' +
-      '<tr> ' +
-      '<td>Roda aro 19 momo</td> ' +
-      '<td>4000,00</td> ' +
-      ' </tr> ' +
-      '  <tr> ' +
-      '    <td>Bicos de pneu</td> ' +
-      '    <td>200,00</td> ' +
-      '   </tr> ' +
-
-      '    </tbody> ' +
-      '   </table> ' +
-      '  </div> ' +
+      '<table class="display" width="100%" id="tableItems"> ' +
+      '<thead>'+
+      '      <tr>' +
+       '         <th>Descrição</th>' +
+        '        <th>Valor</th>' +
+        '    </tr>'
+        '</thead>'
+          
+      '</table> ' +
+      '</div> ' +
       '  <hr /> ' +
       '  <div class="ttl-amts"> ' +
       '<h4> <strong>Total: R$' + totalFatura + '</strong> </h4> ' +
@@ -278,6 +306,16 @@ $(document).ready(function () {
       '</div> '
 
     $("#modalBody").append(faturaContent);
+
+    $('#tableItems').DataTable({
+      data: items  ,
+      columns: [
+        { data: "descricao" },
+        { data: "valor" }
+      ]
+    });
+
+    //$('#tableBody').append(tableBody);
 
   });
 
