@@ -180,9 +180,9 @@ $(document).ready(function () {
     // var map = {};
     // $(".descricaoServico").each(function() {
     //     map[$(this).attr("name")] = $(this).val();
-    //       $(".valorTotalItem").each(function() {
-    //           map[$(this).attr("name")] = $(this).val();
-    //       });
+    //   });
+    //   $(".valorTotalItem").each(function() {
+    //       map[$(this).attr("name")] = $(this).val();
     //   });
     // alert(map.descricaoServico); 
     // alert(map.valorTotalItem);
@@ -190,16 +190,16 @@ $(document).ready(function () {
     var item = {}; // my object
     var items = []; // my array
     $('.descricaoServico').each(function (index, value) {
-      desc = map[$(this).attr("name")] = $(this).val();
+      desc = item[$(this).attr("name")] = $(this).val();
         $(".valorTotalItem").each(function () {
-          valor = map[$(this).attr("name")] = $(this).val();
+          valor = item[$(this).attr("name")] = $(this).val();
+          item = {
+            descricao: desc,
+            valor: valor 
+          }
+          items.push(item);
         });
-      item = {
-        descricao: desc,
-        valor: valor 
-      }
-      items.push(item);
-    });
+      });
 
     //
     // IMPLEMENTING *************
@@ -208,11 +208,12 @@ $(document).ready(function () {
 
 
 
-    
+
 
   
 
-    faturaContent = ' <div class="container" id="containerFatura" style="border: 1px solid #ccc"> ' +
+    faturaContent = ' <div id="printThis"> ' +
+      '<div class="container" id="containerFatura" style="border: 1px solid #ccc"> ' +
       '<h1 class="my-4 text-center">Fatura #' + numeroFatura + '</h1> ' +
       '<div class="row pad-top-botm "> ' +
       '<div class="col-lg-6 col-md-6 col-sm-6 text-center"> ' +
@@ -275,8 +276,8 @@ $(document).ready(function () {
       '      <tr>' +
        '         <th>Descrição</th>' +
         '        <th>Valor</th>' +
-        '    </tr>'
-        '</thead>'
+        '    </tr>' +
+        '</thead>' +
           
       '</table> ' +
       '</div> ' +
@@ -303,21 +304,23 @@ $(document).ready(function () {
       '<button type="button" class="btn btn-success">Download PDF</button> ' +
       '   </div> ' +
       ' </div> ' +
+      '</div> ' +
       '</div> '
 
     $("#modalBody").append(faturaContent);
-
     $('#tableItems').DataTable({
-      data: items  ,
+      data: items,
       columns: [
         { data: "descricao" },
         { data: "valor" }
-      ]
+      ],
+      "paging": false,
+      "ordering": false,
+      "info": false,
+      "bFilter": false
     });
+});
 
-    //$('#tableBody').append(tableBody);
-
-  });
 
   function clearForm() {
 
@@ -343,6 +346,27 @@ $(document).ready(function () {
     var dataFatura  = $('#dataFatura').val('');
     var observacoes = $('#observacoes').val('');
 
+  }
+
+  /** PRINT MODAL CONTENT */
+  document.getElementById("btnPrint").onclick = function () {
+    printElement(document.getElementById("printThis"));
+  }
+
+  function printElement(elem) {
+    var domClone = elem.cloneNode(true);
+
+    var $printSection = document.getElementById("printSection");
+
+    if (!$printSection) {
+      var $printSection = document.createElement("div");
+      $printSection.id = "printSection";
+      document.body.appendChild($printSection);
+    }
+
+    $printSection.innerHTML = "";
+    $printSection.appendChild(domClone);
+    window.print();
   }
 
 });
