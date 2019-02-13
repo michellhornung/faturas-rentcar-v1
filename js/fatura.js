@@ -208,7 +208,7 @@ $(document).ready(function () {
       '<h1 class="my-4 text-center">Fatura: ' + numeroFatura + '</h1> ' +
       '<div class="row pad-top-botm "> ' +
       '<div class="col-lg-6 col-md-6 col-sm-6 text-center"> ' +
-      '<img src="img/logo.jpg" /> ' +
+      '<img src="img/logo.png" /> ' +
       '</div> ' +
       '<div class="col-lg-6 col-md-6 col-sm-6" style="padding-top: 20px"> ' +
       '<strong>' + nomeEmpresa + '</strong> ' +
