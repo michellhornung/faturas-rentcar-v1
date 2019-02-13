@@ -97,21 +97,21 @@ $(document).ready(function () {
   }
 
 
-  $('input.cost').keyup(function (event) {
-    // skip for arrow keys
-    if (event.which >= 37 && event.which <= 40) {
-      event.preventDefault();
-    }
-    var $this = $(this);
-    var num = $this.val().replace(/,/gi, "").split("").reverse().join("");
+  // $('input.cost').keyup(function (event) {
+  //   // skip for arrow keys
+  //   if (event.which >= 37 && event.which <= 40) {
+  //     event.preventDefault();
+  //   }
+  //   var $this = $(this);
+  //   var num = $this.val().replace(/,/gi, "").split("").reverse().join("");
 
-    var num2 = RemoveRougeChar(num.replace(/(.{3})/g, "$1,").split("").reverse().join(""));
+  //   var num2 = RemoveRougeChar(num.replace(/(.{3})/g, "$1,").split("").reverse().join(""));
 
-    console.log(num2);
+  //   console.log(num2);
 
-    // the following line has been simplified. Revision history contains original.
-    $this.val(num2);
-  });
+  //   // the following line has been simplified. Revision history contains original.
+  //   $this.val(num2);
+  // });
 
   function RemoveRougeChar(convertString) {
     if (convertString.substring(0, 1) == ",") {
@@ -178,44 +178,30 @@ $(document).ready(function () {
     //DATA FROM INPUTTED ITEMS
     //////////////////////////
 
-    // var myArrayTableData = [];
-    // var arrayLenght = myArrayTableData.length;
-    // $('.descricaoServico').each(function () {
-    //   myArrayTableData.push($(this).val());
-    // });
-    // $('.valorTotalItem').each(function () {
-    //   myArrayTableData.push($(this).val());
-    // });
+    var descricoes = [];
+    var valores = [];
+    $('.descricaoServico').each(function () {
+      descricoes.push($(this).val());
+    });
+    $('.valorTotalItem').each(function () {
+      valores.push($(this).val());
+    });
 
-
-    //
-    // IMPLEMENTING *************
-    //
-
-    // var map = {};
-    // $(".descricaoServico").each(function() {
-    //     map[$(this).attr("name")] = $(this).val();
-    //   });
-    //   $(".valorTotalItem").each(function() {
-    //       map[$(this).attr("name")] = $(this).val();
-    //   });
-    // alert(map.descricaoServico); 
-    // alert(map.valorTotalItem);
-
-    var item = {}; // my object
-    var items = []; // my array
-   
-    $('.descricaoServico').each(function (index, value) {
-      desc = item[$(this).attr("name")] = $(this).val();
-        $(".valorTotalItem").each(function () {
-          valor = item[$(this).attr("name")] = $(this).val();
-          item = {
+    var newItems = [];
+    var aux = {};
+    for (i = 0; i < descricoes.length; i++) {
+      if (descricoes[i] !== 'undefined') {
+        desc = descricoes[i];
+        if (valores[i] !== 'undefined') {
+          valor = 'R$'+ valores[i];
+          aux = {
             descricao: desc,
-            valor: valor 
+            valor: valor
           }
-          items.push(item);
-        });
-      });
+          newItems.push(aux);
+        }
+      }
+    }
 
     faturaContent = ' <div id="printThis"> ' +
       '<div class="container" id="containerFatura" style="border: 1px solid #ccc"> ' +
@@ -277,7 +263,7 @@ $(document).ready(function () {
       '<div class="row"> ' +
       '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
       '<div class="table-responsive"> ' +
-      '<table class="display" width="100%" id="tableItems"> ' +
+      '<table class="table table-striped table-bordered cell-border" width="100%" id="tableItems"> ' +
       '<thead>'+
       '      <tr>' +
        '         <th>Descrição</th>' +
@@ -315,7 +301,7 @@ $(document).ready(function () {
 
     $("#modalBody").append(faturaContent);
     $('#tableItems').DataTable({
-      data: items,
+      data: newItems,
       columns: [
         { data: "descricao" },
         { data: "valor" }
