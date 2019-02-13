@@ -12,6 +12,7 @@ $(document).ready(function () {
 
   //Load with today date  
   document.querySelector("#dataFatura").valueAsDate = new Date();
+  document.querySelector("#dataVencimento").valueAsDate = new Date();
 
   /** Masks for fields */
   $('.money2').mask("#.##0,00", { reverse: true });
@@ -154,8 +155,22 @@ $(document).ready(function () {
     var estadoCliente = $('#estadoCliente').val();
     var cepCliente = $('#cepCliente').val();
     var totalFatura = $('#sum').val();
-    var dataFatura = $('#dataFatura').val();
     var observacoes = $('#observacoes').val();
+
+    //Get Date and format it
+    var day, month, year;
+    var date = $('#dataFatura').val().split("-");
+    day = date[2];
+    month = date[1];
+    year = date[0];
+    var dataFatura = ([day, month, year].join('/'));
+
+    var day2, month2, year2;
+    var date2 = $('#dataVencimento').val().split("-");
+    day2 = date2[2];
+    month2 = date2[1];
+    year2 = date2[0];
+    var dataVencimento = ([day2, month2, year2].join('/'));
 
 
 
@@ -163,14 +178,14 @@ $(document).ready(function () {
     //DATA FROM INPUTTED ITEMS
     //////////////////////////
 
-    var myArrayTableData = [];
-    var arrayLenght = myArrayTableData.length;
-    $('.descricaoServico').each(function () {
-      myArrayTableData.push($(this).val());
-    });
-    $('.valorTotalItem').each(function () {
-      myArrayTableData.push($(this).val());
-    });
+    // var myArrayTableData = [];
+    // var arrayLenght = myArrayTableData.length;
+    // $('.descricaoServico').each(function () {
+    //   myArrayTableData.push($(this).val());
+    // });
+    // $('.valorTotalItem').each(function () {
+    //   myArrayTableData.push($(this).val());
+    // });
 
 
     //
@@ -189,6 +204,7 @@ $(document).ready(function () {
 
     var item = {}; // my object
     var items = []; // my array
+   
     $('.descricaoServico').each(function (index, value) {
       desc = item[$(this).attr("name")] = $(this).val();
         $(".valorTotalItem").each(function () {
@@ -201,20 +217,9 @@ $(document).ready(function () {
         });
       });
 
-    //
-    // IMPLEMENTING *************
-    //
-
-
-
-
-
-
-  
-
     faturaContent = ' <div id="printThis"> ' +
       '<div class="container" id="containerFatura" style="border: 1px solid #ccc"> ' +
-      '<h1 class="my-4 text-center">Fatura #' + numeroFatura + '</h1> ' +
+      '<h1 class="my-4 text-center">Fatura: ' + numeroFatura + '</h1> ' +
       '<div class="row pad-top-botm "> ' +
       '<div class="col-lg-6 col-md-6 col-sm-6 text-center"> ' +
       '<img src="img/logo.jpg" /> ' +
@@ -239,7 +244,7 @@ $(document).ready(function () {
       '<strong>CNPJ : </strong> ' + cnpjEmpresa + ' ' +
       '</span> ' +
       '<span> ' +
-      '<strong>Fatura número: </strong> #' + numeroFatura + ' ' +
+      '<strong>Fatura número: </strong>' + numeroFatura + ' ' +
       '</span> ' +
       '<hr /> ' +
       '</div> ' +
@@ -265,7 +270,8 @@ $(document).ready(function () {
       '<br /> ' +
       'Data : ' + dataFatura + ' ' +
       '<br /> ' +
-      '<b>Status pagamento : PAGO </b> ' +
+      'Data Vencimento: ' + dataVencimento + ' ' +
+      '<br /> ' +
       '</div> ' +
       '</div> ' +
       '<div class="row"> ' +
