@@ -239,7 +239,6 @@ $(document).ready(function () {
       '<div class="col-lg-6 col-md-6 col-sm-6"> ' +
       '<h4> <strong>Informações do cliente</strong></h4> ' +
       '<strong> ' + nomeCliente + '</strong> ' +
-      '<br /> ' +
       '<b>Endereço :</b> ' + enderecoCliente + ' ' +
       ' ' + cidadeCliente + ' - ' + estadoCliente + ' - Brasil. ' +
       '<br /> ' +
