@@ -155,7 +155,7 @@ $(document).ready(function () {
     var estadoCliente = $('#estadoCliente').val();
     var cepCliente = $('#cepCliente').val();
     var totalFatura = $('#sum').val();
-    var observacoes = $('#observacoes').val();
+    var observacoes = $('textarea#observacoes').val();
 
     //Get Date and format it
     var day, month, year;
@@ -193,7 +193,7 @@ $(document).ready(function () {
       if (descricoes[i] !== 'undefined') {
         desc = descricoes[i];
         if (valores[i] !== 'undefined') {
-          valor = 'R$'+ valores[i];
+          valor = 'R$' + valores[i];
           aux = {
             descricao: desc,
             valor: valor
@@ -203,99 +203,117 @@ $(document).ready(function () {
       }
     }
 
-    faturaContent = ' <div id="printThis"> ' +
-      '<div class="container" id="containerFatura" style="border: 1px solid #ccc"> ' +
-      '<h1 class="my-4 text-center">Fatura: ' + numeroFatura + '</h1> ' +
-      '<div class="row pad-top-botm "> ' +
-      '<div class="col-lg-6 col-md-6 col-sm-6 text-center"> ' +
-      '<img src="img/logo.png" /> ' +
-      '</div> ' +
-      '<div class="col-lg-6 col-md-6 col-sm-6" style="padding-top: 20px"> ' +
-      '<strong>' + nomeEmpresa + '</strong> ' +
-      '<br /> ' +
-      '<i>Endereço : ' + enderecoEmpresa + ' ' +
-      '<br /> ' +
-      'CEP: ' + cepEmpresa + ' ' +
-      '<br /> ' +
-      '' + cidadeEmpresa + ' - ' + estadoEmpresa + ' - Brasil. </i> ' +
-      '</div> ' +
-      '</div> ' +
+    faturaContent = 
+    
+      '<div id="printThis"> ' +
+        '<div class="container" id="containerFatura" style="border: 1px solid #ccc"> ' +
+          '<h1 class="my-4 text-center">Fatura: ' + numeroFatura + '</h1> ' +
+            '<div class="row pad-top-botm "> ' +
+              '<div class="col-lg-6 col-md-6 col-sm-6 text-center"> ' +
+                '<img src="img/logo.png" /> ' +
+              '</div> ' +
+                '<div class="col-lg-6 col-md-6 col-sm-6" style="padding-top: 20px"> ' +
+                  '<strong>' + nomeEmpresa + '</strong> ' +
+                    '<br /> ' +
+                    '<i>Endereço : ' + enderecoEmpresa + ' ' +
+                    '<br /> ' +
+                    'CEP: ' + cepEmpresa + ' ' +
+                    '<br /> ' +
+                    '' + cidadeEmpresa + ' - ' + estadoEmpresa + ' - Brasil. </i> ' +
+                '</div> ' +
+              '</div> ' +
+
       '<div class="row text-center contact-info"> ' +
-      '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
-      '<hr /> ' +
-      '<span> ' +
-      '<strong>E-mail : </strong> ' + emailEmpresa + ' ' +
-      '</span> ' +
-      '<span> ' +
-      '<strong>CNPJ : </strong> ' + cnpjEmpresa + ' ' +
-      '</span> ' +
-      '<span> ' +
-      '<strong>Fatura número: </strong>' + numeroFatura + ' ' +
-      '</span> ' +
-      '<hr /> ' +
+        '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
+          '<hr /> ' +
+          '<span> ' +
+            '<strong>E-mail : </strong> ' + emailEmpresa + ' ' +
+          '</span> ' +
+          '<span> ' +
+            '<strong>CNPJ : </strong> ' + cnpjEmpresa + ' ' +
+          '</span> ' +
+          '<span> ' +
+            '<strong>Fatura número: </strong>' + numeroFatura + ' ' +
+          '</span> ' +
+          '<hr /> ' +
+        '</div> ' +
       '</div> ' +
-      '</div> ' +
+
       '<div class="row pad-top-botm client-info"> ' +
-      '<div class="col-lg-6 col-md-6 col-sm-6"> ' +
-      '<h4> <strong>Informações do cliente</strong></h4> ' +
-      '<strong> ' + nomeCliente + '</strong> ' +
-      '<b>Endereço :</b> ' + enderecoCliente + ' ' +
-      ' ' + cidadeCliente + ' - ' + estadoCliente + ' - Brasil. ' +
-      '<br /> ' +
-      '<b>CEP: </b> ' + cepCliente + ' ' +
-      '<br /> ' +
-      '<b>CNPJ :</b> ' + cnpjCliente + ' ' +
-      '<br /> ' +
-      '<b>E-mail :</b> ' + emailCliente + ' ' +
+        '<div class="col-lg-6 col-md-6 col-sm-6"> ' +
+          '<h4> <strong>Informações do cliente</strong></h4> ' +
+            '<strong> ' + nomeCliente + '</strong> ' +
+            '<br />' +
+            '<b>Endereço :</b> ' + enderecoCliente + ' ' +
+            ' ' + cidadeCliente + ' - ' + estadoCliente + ' - Brasil. ' +
+            '<br /> ' +
+            '<b>CEP: </b> ' + cepCliente + ' ' +
+            '<br /> ' +
+            '<b>CNPJ :</b> ' + cnpjCliente + ' ' +
+            '<br /> ' +
+            '<b>E-mail :</b> ' + emailCliente + ' ' +
+          '</div> ' +
+      
+        '<div class="col-lg-6 col-md-6 col-sm-6"> ' +
+          '<h4> <strong>Detalhes do pagamento </strong></h4> ' +
+          '<b>Total : R$' + totalFatura + ' </b> ' +
+          '<br /> ' +
+          'Data : ' + dataFatura + ' ' +
+          '<br /> ' +
+          'Data Vencimento: ' + dataVencimento + ' ' +
+          '<br /> ' +
+        '</div> ' +
       '</div> ' +
-      '<div class="col-lg-6 col-md-6 col-sm-6"> ' +
 
-      '<h4> <strong>Detalhes do pagamento </strong></h4> ' +
-      '<b>Total : R$' + totalFatura + ' </b> ' +
-      '<br /> ' +
-      'Data : ' + dataFatura + ' ' +
-      '<br /> ' +
-      'Data Vencimento: ' + dataVencimento + ' ' +
-      '<br /> ' +
-      '</div> ' +
-      '</div> ' +
       '<div class="row"> ' +
-      '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
-      '<div class="table-responsive"> ' +
-      '<table class="table table-striped table-bordered cell-border" width="100%" id="tableItems"> ' +
-      '<thead>'+
-      '      <tr>' +
-       '         <th>Descrição</th>' +
-        '        <th>Valor</th>' +
-        '    </tr>' +
-        '</thead>' +
-          
-      '</table> ' +
-      '</div> ' +
-      '  <hr /> ' +
-      '  <div class="ttl-amts"> ' +
-      '<h4> <strong>Total: R$' + totalFatura + '</strong> </h4> ' +
-      '  </div> ' +
-      ' </div> ' +
-      ' </div> ' +
-      '<div class="row"> ' +
-      '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
-      '<strong> Observações: </strong> ' +
-      '<ol> ' +
+        '<div class="col-lg-12 col-md-12 col-sm-12"> ' +
+          '<div class="table-responsive"> ' +
+              '<table class="table table-striped table-bordered cell-border" width="100%" id="tableItems"> ' +
+              '<thead>' +
+              '      <tr>' +
+              '         <th>Descrição</th>' +
+              '        <th>Valor</th>' +
+              '    </tr>' +
+              '</thead>' +
 
-      observacoes
+              '</table> ' +
+          '</div> ' +
 
-    '</ol> ' +
-      '</div> ' +
-      '</div> ' +
-      '<div class="row pad-top-botm"> ' +
-      '<div class="col-lg-12 col-md-12 col-sm-12 text-right"> ' +
       '<hr /> ' +
-      '<button type="button" onclick="callPrinter()" class="btn btn-success">Imprimir Fatura</button> ' +
-      '<button type="button" class="btn btn-success">Download PDF</button> ' +
-      '   </div> ' +
-      ' </div> ' +
+
+      '<div class="ttl-amts"> ' +
+        '<h4> <strong>Total: R$' + totalFatura + '</strong> </h4> ' +
       '</div> ' +
+
+      '</div> ' +
+      '</div> ' +
+
+      
+      '<br />' +
+
+      '<hr/>' +
+
+     '<table class="table table-bordered"> ' +
+          '<tbody> ' +
+            '<tbody> ' +
+              '<tr> ' +
+                '<td colspan="2"><small> RECEBEMOS DE FOR RENT LOCAÇÃO DE VEÍCULOS A FATURA/DUPLICATA DE PRESTAÇÃO DE SERVIÇOS </small></td> ' +
+               ' <td class="text-center" style="border: no">FATURA/DUPLICATA</td> ' +
+              '</tr> ' +
+             ' <tr> ' +
+            '    <td style="padding-bottom: 4%"><small> DATA DO RECEBIMENTO</small></td> ' +
+           '     <td style="padding-bottom: 4%"><small> IDENTIFICAÇÃO E ASSINATURA DO RECEBEDOR</small></td> ' +
+          '      <td style="padding-bottom: 4%" class="text-center" border-top-style: hidden;>'+ numeroFatura +'</td> ' +
+          '    </tr> ' +
+         '   </tbody> ' +
+        '</table> ' +
+
+
+
+ 
+      
+      '</div> ' +
+
       '</div> '
 
     $("#modalBody").append(faturaContent);
@@ -310,7 +328,7 @@ $(document).ready(function () {
       "info": false,
       "bFilter": false
     });
-});
+  });
 
 
   function clearForm() {
@@ -323,19 +341,19 @@ $(document).ready(function () {
     var emailEmpresa = $('#email').val('');
     var cidadeEmpresa = $('#cidade').val('');
     var estadoEmpresa = $('#estado').val('');
-    var cepEmpresa  = $('#cep').val('');
+    var cepEmpresa = $('#cep').val('');
 
     //Customer
-    var nomeCliente  = $('#nomeCliente').val('');
-    var cnpjCliente  = $('#cnpjCliente').val('');
-    var emailCliente  = $('#emailCliente').val('');
-    var enderecoCliente  = $('#enderecoCliente').val('');
-    var cidadeCliente  = $('#cidadeCliente').val('');
-    var estadoCliente  = $('#estadoCliente').val('');
-    var cepCliente  = $('#cepCliente').val('');
-    var totalFatura  = $('#sum').val('');
-    var dataFatura  = $('#dataFatura').val('');
-    var observacoes = $('#observacoes').val('');
+    var nomeCliente = $('#nomeCliente').val('');
+    var cnpjCliente = $('#cnpjCliente').val('');
+    var emailCliente = $('#emailCliente').val('');
+    var enderecoCliente = $('#enderecoCliente').val('');
+    var cidadeCliente = $('#cidadeCliente').val('');
+    var estadoCliente = $('#estadoCliente').val('');
+    var cepCliente = $('#cepCliente').val('');
+    var totalFatura = $('#sum').val('');
+    var dataFatura = $('#dataFatura').val('');
+    var observacoes = $('textarea#observacoes').val('');
 
   }
 
